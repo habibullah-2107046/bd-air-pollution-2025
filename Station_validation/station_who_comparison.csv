@@ -1,0 +1,32 @@
+station,parameter,mean_ug_m3,months_used,WHO_guideline,times_WHO,BD_standard,times_BD
+"Agrabad, Chattogram",PM2.5,122.1,4,5,24.4,35,3.5
+"BARC Farmgate, Dhaka",PM2.5,73.0,11,5,14.6,35,2.1
+Barishal,PM2.5,39.8,10,5,8.0,35,1.1
+Cumilla,PM2.5,68.3,11,5,13.7,35,2.0
+"Darus-Salam, Dhaka",PM2.5,98.8,8,5,19.8,35,2.8
+"DoE Agargaon, Dhaka",PM2.5,77.1,11,5,15.4,35,2.2
+Gazipur,PM2.5,99.2,6,5,19.8,35,2.8
+Khulna,PM2.5,60.6,11,5,12.1,35,1.7
+Mymensingh,PM2.5,91.5,11,5,18.3,35,2.6
+Narayanganj,PM2.5,141.0,6,5,28.2,35,4.0
+Narsingdi,PM2.5,81.4,11,5,16.3,35,2.3
+Rajshahi,PM2.5,96.4,11,5,19.3,35,2.8
+Rangpur,PM2.5,108.2,11,5,21.6,35,3.1
+Savar,PM2.5,84.1,11,5,16.8,35,2.4
+Sylhet,PM2.5,50.1,11,5,10.0,35,1.4
+"TV Station, Chattogram",PM2.5,69.9,11,5,14.0,35,2.0
+"Agrabad, Chattogram",PM10,234.6,3,15,15.6,50,4.7
+"BARC Farmgate, Dhaka",PM10,133.5,10,15,8.9,50,2.7
+Cumilla,PM10,79.5,8,15,5.3,50,1.6
+"Darus-Salam, Dhaka",PM10,145.3,5,15,9.7,50,2.9
+"DoE Agargaon, Dhaka",PM10,143.3,11,15,9.6,50,2.9
+Gazipur,PM10,129.2,9,15,8.6,50,2.6
+Khulna,PM10,111.1,11,15,7.4,50,2.2
+Mymensingh,PM10,161.6,11,15,10.8,50,3.2
+Narayanganj,PM10,190.8,2,15,12.7,50,3.8
+Narsingdi,PM10,70.1,6,15,4.7,50,1.4
+Rajshahi,PM10,149.2,11,15,9.9,50,3.0
+Rangpur,PM10,133.2,10,15,8.9,50,2.7
+Savar,PM10,157.6,7,15,10.5,50,3.2
+Sylhet,PM10,114.4,11,15,7.6,50,2.3
+"TV Station, Chattogram",PM10,72.7,8,15,4.8,50,1.5

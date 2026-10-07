@@ -1,0 +1,9 @@
+pair,level,n,pearson_r,pearson_p,spearman_rho,spearman_p
+PM2.5 vs AOD,station-month,132,0.4977,0.0,0.5406,0.0
+PM2.5 vs AOD,station mean,16,0.5051,0.046,0.4647,0.0697
+PM10 vs AOD,station-month,103,0.6016,0.0,0.6502,0.0
+PM10 vs AOD,station mean,15,0.6249,0.0127,0.6,0.0181
+PM2.5 vs UVAI,station-month,155,0.7249,0.0,0.7534,0.0
+PM2.5 vs UVAI,station mean,16,0.7063,0.0022,0.5029,0.0471
+O3 vs O3,station-month,127,0.0742,0.4068,0.1023,0.2524
+O3 vs O3,station mean,16,-0.0988,0.7159,-0.1088,0.6883

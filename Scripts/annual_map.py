@@ -28,6 +28,7 @@ FIG_DIR  = os.path.join(ROOT, "Figures_v2", "Annual")
 # ------------------------------------------
 
 O3_TO_DU = 1.0 / 4.4615e-4   # GEE O3 is mol/m2; 1 DU = 4.4615e-4 mol/m2
+UMOL     = 1e6                # mol/m2 -> micromol/m2 (NO2, SO2)
 
 CMAP_POLL = LinearSegmentedColormap.from_list(
     "greenbrown", ["#1a6b2e", "#7fb03a", "#dcd97a", "#c68b3c", "#7d3b1f"])
@@ -40,6 +41,9 @@ VARIABLES = {
     "HCHO":      ("HCHO",      u"mol/m\u00b2", CMAP_POLL, "Mean annual HCHO",        1.0),
     "O3":        (u"O\u2083",  "DU",           CMAP_POLL, u"Mean annual O\u2083",    O3_TO_DU),
     "UVAI":      ("UVAI",      "index",        CMAP_POLL, "Mean annual UVAI",        1.0),
+    "NO2":       (u"NO\u2082", u"\u00b5mol/m\u00b2", CMAP_POLL, u"Mean annual NO\u2082", UMOL),
+    "CO":        ("CO",        u"mol/m\u00b2", CMAP_POLL, "Mean annual CO",          1.0),
+    "SO2":       (u"SO\u2082", u"\u00b5mol/m\u00b2", CMAP_POLL, u"Mean annual SO\u2082", UMOL),
     "AOD":       ("AOD",       "550 nm",       CMAP_POLL, "Annual median AOD",       1.0),
     "LST_Day":   ("LST",       u"\u00b0C",     CMAP_TEMP, "Mean annual LST (Day)",   1.0),
     "LST_Night": ("LST",       u"\u00b0C",     CMAP_TEMP, "Mean annual LST (Night)", 1.0),
@@ -70,6 +74,24 @@ def fmt_val(v):
     if a == 0:
         return "0"
     return "{:.2e}".format(v)
+
+
+def tick_labels(ticks):
+    """Same number of decimals for every tick of one colourbar."""
+    top = float(np.max(np.abs(ticks)))
+    step = abs(float(ticks[1] - ticks[0]))
+    if top < 0.01:
+        return [fmt_val(t) for t in ticks]          # very small values: scientific
+    if top >= 100:
+        dec = 0 if step >= 5 else 1
+    elif top >= 10:
+        dec = 1 if step >= 1 else 2
+    elif top >= 1:
+        dec = 2
+    else:
+        dec = 3 if step >= 0.005 else 4
+    out = ["{:.{d}f}".format(t, d=dec) for t in ticks]
+    return ["0" if float(o) == 0 else o for o in out]
 
 
 def dms(value, axis):
@@ -185,7 +207,7 @@ for var, (label, unit, cmap, title, factor) in VARIABLES.items():
     cb = fig.colorbar(im, cax=cax, extend="both")
     ticks = np.linspace(vmin, vmax, 5)
     cb.set_ticks(ticks)
-    cb.set_ticklabels([fmt_val(t) for t in ticks])
+    cb.set_ticklabels(tick_labels(ticks))
     cb.ax.tick_params(labelsize=7.5, pad=2, length=2)
     cb.ax.yaxis.set_ticks_position("right")
     cb.outline.set_linewidth(0.7)

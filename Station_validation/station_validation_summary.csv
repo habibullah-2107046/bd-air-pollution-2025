@@ -5,5 +5,11 @@ PM10 vs AOD,station-month,103,0.6016,0.0,0.6502,0.0
 PM10 vs AOD,station mean,15,0.6249,0.0127,0.6,0.0181
 PM2.5 vs UVAI,station-month,155,0.7249,0.0,0.7534,0.0
 PM2.5 vs UVAI,station mean,16,0.7063,0.0022,0.5029,0.0471
+NO2 vs NO2,station-month,117,0.4075,0.0,0.4565,0.0
+NO2 vs NO2,station mean,15,0.1188,0.6733,0.0964,0.7325
+SO2 vs SO2,station-month,134,0.265,0.002,0.233,0.0067
+SO2 vs SO2,station mean,15,-0.1102,0.6957,0.1714,0.5413
+CO vs CO,station-month,128,0.1696,0.0557,0.2124,0.0161
+CO vs CO,station mean,15,0.4979,0.0589,-0.1037,0.7131
 O3 vs O3,station-month,127,0.0742,0.4068,0.1023,0.2524
 O3 vs O3,station mean,16,-0.0988,0.7159,-0.1088,0.6883

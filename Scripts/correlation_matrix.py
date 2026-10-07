@@ -33,6 +33,9 @@ VARIABLES = {
     "CH4":       (u"CH\u2084",     1.0),
     "HCHO":      ("HCHO",          1.0),
     "O3":        (u"O\u2083",      O3_TO_DU),
+    "NO2":       (u"NO\u2082",     1.0),
+    "CO":        ("CO",            1.0),
+    "SO2":       (u"SO\u2082",     1.0),
 }
 MODIS_1KM = ["LST_Day", "LST_Night", "UHI"]   # masked to land before averaging
 
@@ -120,7 +123,7 @@ for method in ["pearson", "spearman"]:
 
     # heatmap: lower triangle only
     show = np.where(np.tril(np.ones((k, k), bool)), r, np.nan)
-    fig, ax = plt.subplots(figsize=(6.3, 5.4))
+    fig, ax = plt.subplots(figsize=(0.62 * k + 1.4, 0.55 * k + 1.0))
     im = ax.imshow(show, cmap="RdBu_r", vmin=-1, vmax=1)
     for i in range(k):
         for j in range(i + 1):

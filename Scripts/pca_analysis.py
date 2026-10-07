@@ -14,7 +14,8 @@ CSV     = os.path.join(OUT_DIR, "annual_pixels_{}.csv".format(YEAR))
 # ------------------------------------------
 
 # UHI is left out: it is calculated from LST Day, so it would double-count
-VARS = ["LST Day", "LST Night", "AOD", "UVAI", u"CH\u2084", "HCHO", u"O\u2083"]
+VARS = ["LST Day", "LST Night", "AOD", "UVAI", u"CH\u2084", "HCHO", u"O\u2083",
+        u"NO\u2082", "CO", u"SO\u2082"]
 
 df = pd.read_csv(CSV, encoding="utf-8")
 X = df[VARS].values

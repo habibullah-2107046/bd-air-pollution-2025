@@ -30,6 +30,7 @@ FIG_DIR  = os.path.join(ROOT, "Figures_v2", "Monthly")
 # ------------------------------------------
 
 O3_TO_DU = 1.0 / 4.4615e-4   # GEE O3 is mol/m2; 1 DU = 4.4615e-4 mol/m2
+UMOL     = 1e6                # mol/m2 -> micromol/m2 (NO2, SO2)
 
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
@@ -45,6 +46,9 @@ VARIABLES = {
     "HCHO":      ("HCHO",        u"mol/m\u00b2",  CMAP_POLL, 1.0),
     "O3":        (u"O\u2083",    "DU",            CMAP_POLL, O3_TO_DU),
     "UVAI":      ("UVAI",        "index",         CMAP_POLL, 1.0),
+    "NO2":       (u"NO\u2082",   u"\u00b5mol/m\u00b2", CMAP_POLL, UMOL),
+    "CO":        ("CO",          u"mol/m\u00b2",  CMAP_POLL, 1.0),
+    "SO2":       (u"SO\u2082",   u"\u00b5mol/m\u00b2", CMAP_POLL, UMOL),
     "AOD":       ("AOD",         "550 nm",        CMAP_POLL, 1.0),
     "LST_Day":   ("LST Day",     u"\u00b0C",      CMAP_TEMP, 1.0),
     "LST_Night": ("LST Night",   u"\u00b0C",      CMAP_TEMP, 1.0),

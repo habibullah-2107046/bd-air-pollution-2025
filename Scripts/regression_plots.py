@@ -21,13 +21,22 @@ POLLUTANTS = {
     u"CH\u2084": (u"CH\u2084 (ppb)",                    1.0),
     "HCHO":      (u"HCHO (\u00d710\u207b\u2074 mol/m\u00b2)", 1e4),
     u"O\u2083":  (u"O\u2083 (DU)",                      1.0),
+    u"NO\u2082": (u"NO\u2082 (\u00b5mol/m\u00b2)",       1e6),
+    "CO":        (u"CO (mol/m\u00b2)",                  1.0),
+    u"SO\u2082": (u"SO\u2082 (\u00b5mol/m\u00b2)",       1e6),
 }
 LST = {"LST Day": "#a32020", "LST Night": "#2c5f9e"}
 
 df = pd.read_csv(CSV, encoding="utf-8")
 rows = []
 
-fig, axes = plt.subplots(len(POLLUTANTS), 2, figsize=(7.5, 11.0))
+# each pollutant takes two panels (LST Day, LST Night);
+# up to 5 pollutants: one pair per row, above that: two pairs per row
+n_pol = len(POLLUTANTS)
+NPAIR = 1 if n_pol <= 5 else 2
+NROW = int(np.ceil(n_pol / float(NPAIR)))
+fig, axes = plt.subplots(NROW, 2 * NPAIR, figsize=(7.5 if NPAIR == 1 else 11.5, 2.3 * NROW),
+                         squeeze=False)
 
 for i, (pcol, (plabel, f)) in enumerate(POLLUTANTS.items()):
     x = df[pcol].values * f
@@ -39,7 +48,7 @@ for i, (pcol, (plabel, f)) in enumerate(POLLUTANTS.items()):
                      "slope": res.slope, "intercept": res.intercept,
                      "r": res.rvalue, "R2": r2, "p": res.pvalue})
 
-        ax = axes[i, j]
+        ax = axes[i // NPAIR, 2 * (i % NPAIR) + j]
         ax.scatter(x, y, s=2, alpha=0.25, color=colour, edgecolors="none", rasterized=True)
         xs = np.linspace(np.percentile(x, 0.5), np.percentile(x, 99.5), 50)
         ax.plot(xs, res.intercept + res.slope * xs, color="black", lw=1.2)
@@ -55,9 +64,11 @@ for i, (pcol, (plabel, f)) in enumerate(POLLUTANTS.items()):
         ax.set_xlabel(plabel, fontsize=7.5)
         ax.set_ylabel(u"{} (\u00b0C)".format(lcol), fontsize=7.5)
         ax.tick_params(labelsize=6.5)
-        if i == 0:
+        if i < NPAIR:
             ax.set_title(lcol, fontsize=9, fontweight="bold")
 
+for k in range(2 * n_pol, axes.size):             # empty panels
+    axes.ravel()[k].axis("off")
 plt.tight_layout()
 plt.savefig(os.path.join(OUT_DIR, "regression_LST_pollutants_{}.png".format(YEAR)), dpi=400)
 plt.close(fig)

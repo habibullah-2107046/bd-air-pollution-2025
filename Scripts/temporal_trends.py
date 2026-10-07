@@ -28,6 +28,9 @@ VARIABLES = {
     "CH4":       (u"CH\u2084 (ppb)",                           1.0,      "#35978f"),
     "HCHO":      (u"HCHO (\u00d710\u207b\u2074 mol/m\u00b2)",  1e4,      "#01665e"),
     "O3":        (u"O\u2083 (DU)",                             O3_TO_DU, "#762a83"),
+    "NO2":       (u"NO\u2082 (\u00b5mol/m\u00b2)",              1e6,      "#d6604d"),
+    "CO":        (u"CO (mol/m\u00b2)",                         1.0,      "#4d4d4d"),
+    "SO2":       (u"SO\u2082 (\u00b5mol/m\u00b2)",              1e6,      "#b8860b"),
     "LST_Day":   (u"LST Day (\u00b0C)",                        1.0,      "#a32020"),
     "LST_Night": (u"LST Night (\u00b0C)",                      1.0,      "#2c5f9e"),
 }
@@ -44,10 +47,16 @@ def monsoon(ax):
 
 
 # ============ 1. daily national means ============
-fig, axes = plt.subplots(len(VARIABLES), 1, figsize=(7.5, 11.0), sharex=True)
+# one column up to 7 variables, two columns above that
+n_var = len(VARIABLES)
+NCOL = 1 if n_var <= 7 else 2
+NROW = int(np.ceil(n_var / float(NCOL)))
+fig, axes = plt.subplots(NROW, NCOL, figsize=(7.5 if NCOL == 1 else 10.5, 11.0),
+                         sharex=True, squeeze=False)
+flat = axes.ravel()
 daily_stats = []
 
-for ax, (var, (label, f, colour)) in zip(axes, VARIABLES.items()):
+for ax, (var, (label, f, colour)) in zip(flat, VARIABLES.items()):
     path = os.path.join(DATA_DIR, "{}_daily_{}.csv".format(var, YEAR))
     if not os.path.exists(path):
         ax.text(0.5, 0.5, "{} not found".format(os.path.basename(path)),
@@ -83,11 +92,15 @@ for ax, (var, (label, f, colour)) in zip(axes, VARIABLES.items()):
                         "max": d["value"].max()})
     print("{:10s} days used: {}   outliers removed: {}".format(var, n_ok, n_out))
 
-axes[-1].xaxis.set_major_locator(mdates.MonthLocator())
-axes[-1].xaxis.set_major_formatter(mdates.DateFormatter("%b"))
-axes[0].set_title("Daily national mean, Bangladesh {}  (dots = daily, line = {}-day median, "
-                  "blue band = monsoon)".format(YEAR, ROLL_DAYS), fontsize=8)
-plt.tight_layout()
+flat[0].xaxis.set_major_locator(mdates.MonthLocator())
+flat[0].xaxis.set_major_formatter(mdates.DateFormatter("%b"))
+for k in range(n_var, len(flat)):                 # empty cells (odd number of variables)
+    flat[k].axis("off")
+    if k - NCOL >= 0:
+        flat[k - NCOL].tick_params(labelbottom=True)
+fig.suptitle("Daily national mean, Bangladesh {}  (dots = daily, line = {}-day median, "
+             "blue band = monsoon)".format(YEAR, ROLL_DAYS), fontsize=8)
+plt.tight_layout(rect=[0, 0, 1, 0.975])
 plt.savefig(os.path.join(OUT_DIR, "daily_trends_{}.png".format(YEAR)), dpi=400)
 plt.close(fig)
 pd.DataFrame(daily_stats).round(4).to_csv(

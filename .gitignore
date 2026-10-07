@@ -1,0 +1,24 @@
+# Ignore everything in the project folder ...
+/*
+
+# ... except these
+!/.gitignore
+!/README.md
+!/Scripts/
+!/Script for GEE/
+!/Figures_v2/
+!/BD_AQ_2025/
+!/Station_validation/
+
+# Never upload (rasters stay on Google Drive)
+*.tif
+*.tiff
+*.aux.xml
+*.ovr
+*.zip
+
+# Editor / Python leftovers and old script versions
+.vscode/
+__pycache__/
+*.pyc
+*_old.py

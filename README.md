@@ -24,7 +24,7 @@ Script for GEE/      GEE scripts (JavaScript) that export the rasters and daily 
 Scripts/             Python scripts for maps and statistics
 BD_AQ_2025/          Tables exported from GEE and station data (CSV only)
 Figures_v2/          Final figures
-    Annual/  Monthly/  Temporal/  Statistics/  StudyArea/  Flowchart/
+    Annual/  Monthly/  Seasonal/  Temporal/  Statistics/  StudyArea/  Flowchart/
 Station_validation/  Satellite vs DoE station comparison (tables and figure)
 ```
 
@@ -58,8 +58,11 @@ Run in this order:
 | 6 | `correlation_matrix.py` | 0.05° pixel table, Pearson and Spearman matrices |
 | 7 | `regression_plots.py` | LST vs pollutant regressions |
 | 8 | `pca_analysis.py` | PCA scree plot, biplot, loadings |
-| 9 | `gwr_analysis.py` | GWR coefficient maps and summary |
-| 10 | `station_validation.py` | Satellite vs station comparison, WHO / Bangladesh standard table |
+| 9 | `gwr_analysis.py` | GWR coefficient maps and summary (main model and UVAI check model) |
+| 10 | `seasonal_analysis.py` | Seasonal maps, seasonal means, seasonal LST–pollutant correlation |
+| 11 | `station_validation.py` | Satellite vs station comparison, WHO / Bangladesh standard table |
+
+Steps 7–9 read the pixel table made in step 6, so run step 6 first.
 
 ## How to run
 
@@ -81,7 +84,11 @@ Each script prints `Done.` when it finishes.
 - Months with < 50% valid pixels are labelled as insufficient data (monsoon cloud).
 - One shared colour scale per variable across all months.
 - O3 is converted from mol/m² to Dobson Units for mapping.
+- NO2 and SO2 are shown in µmol/m² (mol/m² × 10⁶); SO2 values below −0.001 mol/m² are removed as noise.
 - PM2.5 and PM10 are not estimated from satellite data; AOD is analysed directly.
+- Seasons: winter (Dec–Feb, using Jan, Feb and Dec 2025), pre-monsoon (Mar–May), monsoon (Jun–Sep), post-monsoon (Oct–Nov).
+- GWR: LST Day and LST Night ~ AOD + CH4 + HCHO + NO2 + CO (adaptive bisquare kernel, AICc bandwidth). UVAI, O3 and SO2 are left out of the main model; a second model with UVAI in place of AOD is run as a check.
+- Station comparison: 3 × 3 pixel mean at each DoE station, station-months with at least 50% data capture.
 
 ## Contact
 

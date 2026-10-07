@@ -223,7 +223,7 @@ for var, (label, unit, cmap, factor) in VARIABLES.items():
         scale_bar(ax, ext)
 
         cax = inset_axes(ax, width="4%", height="26%", loc="lower left",
-                         bbox_to_anchor=(0.045, 0.15, 1, 1),
+                         bbox_to_anchor=(0.085, 0.15, 1, 1),
                          bbox_transform=ax.transAxes, borderpad=0)
         cb = fig.colorbar(im, cax=cax, extend="both")
         cb.set_ticks([vmin, vmax])

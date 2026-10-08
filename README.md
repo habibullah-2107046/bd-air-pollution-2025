@@ -193,6 +193,6 @@ No licence has been set yet. Until the paper is published, please ask the mainta
 
 **[Md. Habibullah Masbah](https://www.linkedin.com/in/habibullah046/)** (repository maintainer)\
 Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh\
-Email: habibullah.ruet.urp [at] gmail.com
+Email: habibullah.ruet.urp@gmail.com
 
 For questions about the code or data, you can also open an issue in this repository.

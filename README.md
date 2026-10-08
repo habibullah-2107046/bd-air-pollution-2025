@@ -1,8 +1,8 @@
 # Satellite-based air pollution and land surface temperature in Bangladesh (2025)
 
-Scripts, tables and figures for a national-scale study of air pollutants and land surface temperature (LST) over Bangladesh for 1 January – 31 December 2025. Satellite data are processed in Google Earth Engine (GEE); maps and statistics are produced in Python. The workflow adapts the approach of Sameh et al. (Egypt) to Bangladesh.
+Scripts, tables and figures for a national-scale study of air pollutants and land surface temperature (LST) over Bangladesh for 1 January – 31 December 2025. Satellite data are processed in Google Earth Engine (GEE); maps and statistics are produced in Python. The workflow adapts the approach of Sameh et al. (2026, *The Egyptian Journal of Remote Sensing and Space Sciences*, 29(1), 158–178, https://doi.org/10.1016/j.ejrs.2026.01.008) to Bangladesh.
 
-**Status:** work in progress, unpublished. Please do not share outside the team.
+**Status:** work in progress. The manuscript is a draft that has not been peer-reviewed or published, so the results are preliminary and may change. Please contact the maintainer before using or citing them.
 
 ## Key findings
 
@@ -14,7 +14,7 @@ Scripts, tables and figures for a national-scale study of air pollutants and lan
 - **GWR.** Explained variance of LST rises from 0.24 (global OLS) to 0.91 (day) and 0.93 (night), so the relationships vary strongly across the country.
 - **Ground comparison.** Station PM2.5 correlates with AOD (r = 0.50) and UVAI (r = 0.72). Every DoE station exceeds the WHO guideline and the national standard for PM2.5 (station means 39.8–141.0 µg/m³).
 
-The full text, tables and figures are in the draft manuscript in `Writtings/`.
+The full text, tables and figures are in the draft manuscript in `Writtings/` (not peer-reviewed).
 
 ## Workflow diagram
 
@@ -57,14 +57,14 @@ bd-air-pollution-2025/
 │   ├── StudyArea/             Study area map
 │   └── Flowchart/             Workflow diagram
 ├── Station_validation/        Satellite vs DoE station comparison (tables and figure)
-└── Writtings/                 Draft manuscript
+└── Writtings/                 Draft manuscript and progress report
 ```
 
 ## Data not in this repository
 
 | Data | Why | Where to get it | Where to put it |
 |---|---|---|---|
-| Raster files (`.tif`): monthly (12-band) and annual composites of every variable | Too large for GitHub | [Team Google Drive folder](https://drive.google.com/drive/folders/1fJYs1cqs_V31OdvbfbCfgoshujVFL4cM?usp=sharing), or re-export with the GEE scripts | `BD_AQ_2025/` |
+| Raster files (`.tif`): monthly (12-band) and annual composites of every variable | Too large for GitHub | [Google Drive folder](https://drive.google.com/drive/folders/1fJYs1cqs_V31OdvbfbCfgoshujVFL4cM?usp=sharing), or re-export with the GEE scripts | `BD_AQ_2025/` |
 | National boundary `BGD_adm0.shp` (with `.dbf`, `.shx`, `.prj`, `.cpg`) | GADM data may not be redistributed | <https://gadm.org> (Bangladesh, level 0); save it under this name | `boundary/` |
 
 The GEE scripts clip to the same national boundary, uploaded to GEE as an asset. Upload the boundary to your own GEE account and change the asset path at the top of each script.
@@ -166,6 +166,20 @@ Units: AOD and UVAI unitless; CH4 in ppb; CO in mol/m²; O3 in Dobson Units; LST
 - GWR: LST Day and LST Night ~ AOD + CH4 + HCHO + NO2 + CO (adaptive bisquare kernel, AICc bandwidth). UVAI, O3 and SO2 are left out of the main model; a second model with UVAI in place of AOD is run as a check.
 - Station comparison: 3 × 3 pixel mean at each DoE station, station-months with at least 50% data capture.
 
+## Data sources and acknowledgement
+
+- Sentinel-5P TROPOMI products: European Space Agency / Copernicus programme.
+- MODIS MCD19A2, MOD11A1 and MCD12Q1 products: NASA.
+- Processing platform: Google Earth Engine.
+- Ground measurements: Department of Environment (DoE), Government of Bangladesh.
+- Country boundaries: GADM and Natural Earth.
+
+Each dataset remains under the terms of its provider.
+
+## Use and citation
+
+No licence has been set yet. Until the paper is published, please ask the maintainer before reusing the code, tables or figures. A citation will be added here after publication.
+
 ## Contact
 
-Habibullah (maintainer)
+Habibullah (maintainer). For questions or problems, please open an issue in this repository.

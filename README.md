@@ -180,6 +180,19 @@ Each dataset remains under the terms of its provider.
 
 No licence has been set yet. Until the paper is published, please ask the maintainer before reusing the code, tables or figures. A citation will be added here after publication.
 
+## Research team
+
+| Name | Role in this project | Affiliation |
+|---|---|---|
+| Abdullah Al Rakib | Study lead and supervision | Research Associate, BRAC James P Grant School of Public Health, BRAC University, Dhaka, Bangladesh |
+| Rubayet Arafin Rimon | Supervision and review | Graduate Teaching Assistant, Department of Geography and Environmental Studies, Texas Tech University, USA |
+| Md. Habibullah Masbah | Data processing, analysis, code and repository maintenance | Undergraduate student (BURP), Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Bangladesh |
+| Md Khadem Ali | Methodology and manuscript writing | Undergraduate student (B.Sc. in Geography and Environment), National University, Bangladesh |
+
 ## Contact
 
-Habibullah (maintainer). For questions or problems, please open an issue in this repository.
+**Md. Habibullah Masbah** (repository maintainer)\
+Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh\
+Email: habibullah.ruet.urp [at] gmail.com
+
+For questions about the code or data, you can also open an issue in this repository.

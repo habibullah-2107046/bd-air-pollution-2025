@@ -4,6 +4,10 @@ Scripts, tables and figures for a national-scale study of air pollutants and lan
 
 **Status:** work in progress, unpublished. Please do not share outside the team.
 
+## Workflow diagram
+
+![Workflow of the study](Figures_v2/Flowchart/methodology_flowchart_v2.png)
+
 ## Variables and data sources
 
 | Variable | Product | Export scale |
@@ -20,12 +24,22 @@ UHI is computed from annual daytime LST as pixel LST minus the mean rural LST wi
 ## Folder structure
 
 ```
-Script for GEE/      GEE scripts (JavaScript) that export the rasters and daily CSVs
-Scripts/             Python scripts for maps and statistics
-BD_AQ_2025/          Tables exported from GEE and station data (CSV only)
-Figures_v2/          Final figures
-    Annual/  Monthly/  Seasonal/  Temporal/  Statistics/  StudyArea/  Flowchart/
-Station_validation/  Satellite vs DoE station comparison (tables and figure)
+bd-air-pollution-2025/
+├── README.md
+├── .gitignore
+├── Script for GEE/            GEE scripts (JavaScript): raster and daily CSV exports
+├── Scripts/                   Python scripts for maps and statistics
+├── BD_AQ_2025/                Tables exported from GEE and station data (CSV only)
+├── Figures_v2/                Final figures
+│   ├── Annual/                Annual maps
+│   ├── Monthly/               Monthly 4 × 3 panel maps
+│   ├── Seasonal/              Seasonal maps, means and correlations
+│   ├── Temporal/              Daily trends, monthly LST
+│   ├── Statistics/            Correlation, regression, PCA, GWR
+│   ├── StudyArea/             Study area map
+│   └── Flowchart/             Workflow diagram
+├── Station_validation/        Satellite vs DoE station comparison (tables and figure)
+└── Manuscript/                Draft manuscript
 ```
 
 **Raster files (.tif) are not in this repository** because they are too large for GitHub. They are in the team's Google Drive folder. To run the Python scripts, download them into `BD_AQ_2025/`.

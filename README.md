@@ -2,7 +2,7 @@
 
 Scripts, tables and figures for a national-scale study of air pollutants and land surface temperature (LST) over Bangladesh for 1 January – 31 December 2025. Satellite data are processed in Google Earth Engine (GEE); maps and statistics are produced in Python. The workflow adapts the approach of Sameh et al. (2026, *The Egyptian Journal of Remote Sensing and Space Sciences*, 29(1), 158–178, https://doi.org/10.1016/j.ejrs.2026.01.008) to Bangladesh.
 
-**Status:** work in progress. The manuscript is a draft that has not been peer-reviewed or published, so the results are preliminary and may change. Please contact the maintainer before using or citing them.
+**Status:** work in progress. The study has not yet been peer-reviewed or published, so the results are preliminary and may change. Please contact the maintainer before using or citing them.
 
 ## Key findings
 
@@ -13,8 +13,6 @@ Scripts, tables and figures for a national-scale study of air pollutants and lan
 - **PCA.** Three components explain 74.9% of the variance of ten variables.
 - **GWR.** Explained variance of LST rises from 0.24 (global OLS) to 0.91 (day) and 0.93 (night), so the relationships vary strongly across the country.
 - **Ground comparison.** Station PM2.5 correlates with AOD (r = 0.50) and UVAI (r = 0.72). Every DoE station exceeds the WHO guideline and the national standard for PM2.5 (station means 39.8–141.0 µg/m³).
-
-The full text, tables and figures are in the draft manuscript in `Writtings/` (not peer-reviewed).
 
 ## Workflow diagram
 
@@ -57,7 +55,7 @@ bd-air-pollution-2025/
 │   ├── StudyArea/             Study area map
 │   └── Flowchart/             Workflow diagram
 ├── Station_validation/        Satellite vs DoE station comparison (tables and figure)
-└── Writtings/                 Draft manuscript and progress report
+└── Writtings/                 AI-generated reference draft of the manuscript and the progress report (not the final manuscript)
 ```
 
 ## Data not in this repository

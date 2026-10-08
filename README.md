@@ -184,14 +184,14 @@ No licence has been set yet. Until the paper is published, please ask the mainta
 
 | Name | Role in this project | Affiliation |
 |---|---|---|
-| Abdullah Al Rakib | Study lead and supervision | Research Associate, BRAC James P Grant School of Public Health, BRAC University, Dhaka, Bangladesh |
-| Rubayet Arafin Rimon | Supervision and review | Graduate Teaching Assistant, Department of Geography and Environmental Studies, Texas Tech University, USA |
-| Md. Habibullah Masbah | Data processing, analysis, code and repository maintenance | Undergraduate student (BURP), Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Bangladesh |
-| Md Khadem Ali | Methodology and manuscript writing | Undergraduate student (B.Sc. in Geography and Environment), National University, Bangladesh |
+| [Abdullah Al Rakib](https://www.linkedin.com/in/abdullahal-rakib/) | Study lead and supervision | Research Associate, BRAC James P Grant School of Public Health, BRAC University, Dhaka, Bangladesh |
+| [Rubayet Arafin Rimon](https://www.linkedin.com/in/rubayet-arafin-rimon-255203361/) | Supervision and review | Graduate Teaching Assistant, Department of Geography and Environmental Studies, Texas Tech University, USA |
+| [Md. Habibullah Masbah](https://www.linkedin.com/in/habibullah046/) | Data processing, analysis, code and repository maintenance | Undergraduate student (BURP), Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Bangladesh |
+| [Md Khadem Ali](https://www.linkedin.com/in/md-khadem-ali-10849b384/) | Literature review and manuscript writing | Undergraduate student (B.Sc. in Geography and Environment), National University, Bangladesh |
 
 ## Contact
 
-**Md. Habibullah Masbah** (repository maintainer)\
+**[Md. Habibullah Masbah](https://www.linkedin.com/in/habibullah046/)** (repository maintainer)\
 Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh\
 Email: habibullah.ruet.urp [at] gmail.com
 

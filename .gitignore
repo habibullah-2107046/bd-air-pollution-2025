@@ -9,6 +9,10 @@
 !/Figures_v2/
 !/BD_AQ_2025/
 !/Station_validation/
+!/Writtings/
+!/boundary/
+!/environment.yml
+/boundary/BGD_adm0.*
 
 # Never upload (rasters stay on Google Drive)
 *.tif
